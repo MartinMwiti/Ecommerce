@@ -28,3 +28,5 @@ double getProportionateScreenWidth(double inputWidth) {
   // 375 is the layout width that designer use
   return (inputWidth / 375.0) * screenWidth;
 }
+
+// iPhone X, iPhone XS, iPhone 11 Pro Landscape Logical Resolution = 812 x 375 points
