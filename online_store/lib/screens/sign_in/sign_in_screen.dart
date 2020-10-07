@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_store/screens/sign_in/components/body.dart';
 
 class SignInScreen extends StatelessWidget {
   static String routeName = "/sign_in";
@@ -9,6 +10,7 @@ class SignInScreen extends StatelessWidget {
         title: Text("Sign In"),
         centerTitle: true,
       ),
+      body: Body(),
     );
   }
 }
