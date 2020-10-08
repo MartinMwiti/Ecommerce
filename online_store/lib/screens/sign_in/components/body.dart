@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_store/components/custom_suffix_icon.dart';
 import 'package:online_store/components/default_button.dart';
+import 'package:online_store/components/form_error.dart';
+import 'package:online_store/constants.dart';
 import 'package:online_store/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -13,10 +14,12 @@ class Body extends StatelessWidget {
         child: Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: Column(
+          child: ListView(
+            // Originally was Column, replaced with ListView to avoid overflowed pixel problem with keybard.
             children: [
               Text(
                 "Welcome Back",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 28,
@@ -43,7 +46,9 @@ class SignForm extends StatefulWidget {
 class _SignFormState extends State<SignForm> {
   // GlobalKey This uniquely identifies the Form , and allows validation of the form in a later step.
   final _formKey = GlobalKey<FormState>();
-  final List<String> errors = ["Demo Error"];
+  String email;
+  String password;
+  final List<String> errors = [];
 
   @override
   Widget build(BuildContext context) {
@@ -56,23 +61,15 @@ class _SignFormState extends State<SignForm> {
           SizedBox(height: getProportionateScreenHeight(20)),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(20)),
-          Row(
-            children: [
-              SvgPicture.asset(
-                "assets/icons/Error.svg",
-                // use same values to achieve proportionate size.
-                height: getProportionateScreenWidth(14),
-                width: getProportionateScreenWidth(14),
-              ),
-              SizedBox(
-                width: getProportionateScreenWidth(10),
-              ),
-              Text(errors[0])
-            ],
-          ),
+          FormError(errors: errors),
+          SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: 'Continue',
-            press: () {},
+            press: () {
+              if (_formKey.currentState.validate()) {
+                _formKey.currentState.save();
+              }
+            },
           )
         ],
       ),
@@ -83,6 +80,41 @@ class _SignFormState extends State<SignForm> {
     return TextFormField(
       // obscure visibility of the password
       obscureText: true,
+      onSaved: (newValue) => password = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kPassNullError)) {
+          setState(() {
+            errors.remove(kPassNullError);
+          });
+        } else if (value.length >= 8 && errors.contains(kShortPassError)) {
+          setState(() {
+            errors.remove(kShortPassError);
+          });
+        }
+        // In case a user removed some characters below the threshold, show alert
+        else if (value.length < 8 &&
+            value.isNotEmpty &&
+            !errors.contains(kShortPassError)) {
+          setState(() {
+            errors.add(kShortPassError);
+          });
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty && !errors.contains(kPassNullError)) {
+          setState(() {
+            errors.add(kPassNullError);
+          });
+        } else if (value.length < 8 &&
+            value.isNotEmpty &&
+            !errors.contains(kShortPassError)) {
+          setState(() {
+            errors.add(kShortPassError);
+          });
+        }
+        return null;
+      },
       decoration: InputDecoration(
         // uses the InputDecorationTheme defined in my theme.dart file
         labelText: "Password",
@@ -100,10 +132,30 @@ class _SignFormState extends State<SignForm> {
     return TextFormField(
       // Requests a keyboard with ready access to the "@" and "." keys.
       keyboardType: TextInputType.emailAddress,
-      validator: (value) {
-        if (value.isEmpty) {
+      onSaved: (newValue) => email = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kEmailNullError)) {
           setState(() {
-            errors.add("Please enter your email");
+            errors.remove(kEmailNullError);
+          });
+        } else if (emailValidatorRegExp.hasMatch(value) &&
+            errors.contains(kInvalidEmailError)) {
+          setState(() {
+            errors.remove(kInvalidEmailError);
+          });
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty && !errors.contains(kEmailNullError)) {
+          setState(() {
+            errors.add(kEmailNullError);
+          });
+        } else if (value.isNotEmpty &&
+            !emailValidatorRegExp.hasMatch(value) &&
+            !errors.contains(kInvalidEmailError)) {
+          setState(() {
+            errors.add(kInvalidEmailError);
           });
         }
         return null;
