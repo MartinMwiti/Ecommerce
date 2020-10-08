@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:online_store/screens/sign_in/components/body.dart';
-
 class SignInScreen extends StatelessWidget {
   static String routeName = "/sign_in";
   @override
@@ -8,7 +7,6 @@ class SignInScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Sign In"),
-        centerTitle: true,
       ),
       body: Body(),
     );

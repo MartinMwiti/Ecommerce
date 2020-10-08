@@ -17,8 +17,7 @@ class MyApp extends StatelessWidget {
       theme: theme(),
       // We use routeName so that we don't neet to remember the name
       initialRoute: SplashScreen.routeName, // "/splash"
-      routes:
-          routes, // When navigating to the "/splash" route, build the SplashScreen widget.
+      routes: routes, // When navigating to the "/splash" route, build the SplashScreen widget.
     );
   }
 }
