@@ -58,3 +58,7 @@ class _BodyState extends State<Body> {
         context, MaterialPageRoute(builder: (context) => SecondScreen()));
   }
 }
+
+// MaterialPageRoute - A modal route that replaces the entire screen with a platform-adaptive transition. For Android, the entrance transition for the page slides the route upwards and fades it in. The exit transition is the same, but in reverse.
+
+// The transition is adaptive to the platform and on iOS, the route slides in from the right and exits in reverse. The route also shifts to the left in parallax when another page enters to cover it.
