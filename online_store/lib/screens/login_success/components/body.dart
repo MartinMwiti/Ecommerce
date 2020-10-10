@@ -1,8 +1,20 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:online_store/components/default_button.dart';
+import 'package:online_store/screens/login_success/components/second_screen.dart';
 import 'package:online_store/size_config.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  void initState() {
+    super.initState();
+    startTimer();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -22,16 +34,27 @@ class Body extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          SizedBox(height: SizeConfig.screenHeight * 0.09),
-          SizedBox(
-            width: SizeConfig.screenWidth * 0.6,
-            child: DefaultButton(
-              text: "Back to home",
-              press: () {},
-            ),
-          ),
+          // SizedBox(height: SizeConfig.screenHeight * 0.09),
+          // SizedBox(
+          //   width: SizeConfig.screenWidth * 0.6,
+          //   child: DefaultButton(
+          //     text: "Back to home",
+          //     press: () {},
+          //   ),
+          // ),
         ],
       ),
     );
+  }
+
+  startTimer() async {
+    Duration duration = Duration(seconds: 2);
+    return Timer(duration, route);
+  }
+
+  route() {
+    // Navigator.pushReplacement - Replace the current route of the navigator that most tightly encloses the given context by pushing the given route and then disposing the previous route once the new route has finished animating in.
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => SecondScreen()));
   }
 }
