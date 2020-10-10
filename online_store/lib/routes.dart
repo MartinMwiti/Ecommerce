@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:online_store/screens/forgot_password/forgot_password_screen.dart';
 import 'package:online_store/screens/sign_in/sign_in_screen.dart';
 import 'package:online_store/screens/splash/splash_screen.dart';
 
@@ -7,4 +8,5 @@ import 'package:online_store/screens/splash/splash_screen.dart';
 final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(), // When navigating to the "/splash" route, build the SplashScreen widget.
   SignInScreen.routeName: (context) => SignInScreen(),
+  ForgotPasswordScreen.routeName: (context) => ForgotPasswordScreen(),
 };
