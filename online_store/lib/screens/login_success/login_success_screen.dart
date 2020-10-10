@@ -7,7 +7,7 @@ class LoginSuccessScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: SizedBox(), // remove the back arrow key
+        // leading: SizedBox(), // remove the back arrow key
         title: Text("Login Success"),
       ),
       body: Body()
