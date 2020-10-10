@@ -1,7 +1,7 @@
-# Ecommerce
+# E-commerce
 Responsive iOS and Android e-commerce app.
 
-### Ecommerce App UI
+###  <ins>E-commerce App UI</ins>
 
 #### 1. Sign In Screen UI
 >![](https://github.com/MartinMwiti/Ecommerce/blob/master/assets/SignInScreen.png)
