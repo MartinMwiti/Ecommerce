@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:online_store/size_config.dart';
+import 'package:online_store/size_config.dart';
 
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryLightColor = Color(0xFFFFECDF);
@@ -25,26 +25,12 @@ const String kNamelNullError = "Please Enter your name";
 const String kPhoneNumberNullError = "Please Enter your phone number";
 const String kAddressNullError = "Please Enter your address";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// final headingStyle = TextStyle(
-//   fontSize: getProportionateScreenWidth(28),
-//   fontWeight: FontWeight.bold,
-//   color: Colors.black,
-//   height: 1.5,
-// );
+final headingStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  height: 1.5,
+);
 
 // const defaultDuration = Duration(milliseconds: 250);
 

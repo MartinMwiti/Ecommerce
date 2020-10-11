@@ -19,6 +19,20 @@ class _SignFormState extends State<SignForm> {
   bool remember = false;
   final List<String> errors = [];
 
+  void addError({String error}) {
+    if (!errors.contains(error))
+      setState(() {
+        errors.add(error);
+      });
+  }
+
+  void removeError({String error}) {
+    if (errors.contains(error))
+      setState(() {
+        errors.remove(error);
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -56,12 +70,12 @@ class _SignFormState extends State<SignForm> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
-            text: 'Continue',
+            text: 'Login',
             press: () {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 // if all are valid then go to success screen
-                Navigator.popAndPushNamed(context, LoginSuccessScreen.routeName);
+                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
           )
@@ -76,36 +90,22 @@ class _SignFormState extends State<SignForm> {
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(kPassNullError)) {
-          setState(() {
-            errors.remove(kPassNullError);
-          });
-        } else if (value.length >= 8 && errors.contains(kShortPassError)) {
-          setState(() {
-            errors.remove(kShortPassError);
-          });
+        if (value.isNotEmpty) {
+          removeError(error: kPassNullError);
+        } else if (value.length >= 8) {
+          removeError(error: kShortPassError);
         }
         // In case a user removed some characters below the threshold, show alert
-        else if (value.length < 8 &&
-            value.isNotEmpty &&
-            !errors.contains(kShortPassError)) {
-          setState(() {
-            errors.add(kShortPassError);
-          });
+        else if (value.length < 8 && value.isNotEmpty) {
+          addError(error: kShortPassError);
         }
         return null;
       },
       validator: (value) {
-        if (value.isEmpty && !errors.contains(kPassNullError)) {
-          setState(() {
-            errors.add(kPassNullError);
-          });
-        } else if (value.length < 8 &&
-            value.isNotEmpty &&
-            !errors.contains(kShortPassError)) {
-          setState(() {
-            errors.add(kShortPassError);
-          });
+        if (value.isEmpty) {
+          addError(error: kPassNullError);
+        } else if (value.length < 8 && value.isNotEmpty) {
+          addError(error: kShortPassError);
         }
         return null;
       },
@@ -128,29 +128,18 @@ class _SignFormState extends State<SignForm> {
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.remove(kEmailNullError);
-          });
-        } else if (emailValidatorRegExp.hasMatch(value) &&
-            errors.contains(kInvalidEmailError)) {
-          setState(() {
-            errors.remove(kInvalidEmailError);
-          });
+        if (value.isNotEmpty) {
+          removeError(error: kEmailNullError);
+        } else if (emailValidatorRegExp.hasMatch(value)) {
+          removeError(error: kInvalidEmailError);
         }
         return null;
       },
       validator: (value) {
-        if (value.isEmpty && !errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.add(kEmailNullError);
-          });
-        } else if (value.isNotEmpty &&
-            !emailValidatorRegExp.hasMatch(value) &&
-            !errors.contains(kInvalidEmailError)) {
-          setState(() {
-            errors.add(kInvalidEmailError);
-          });
+        if (value.isEmpty) {
+          addError(error: kEmailNullError);
+        } else if (value.isNotEmpty && !emailValidatorRegExp.hasMatch(value)) {
+          addError(error: kInvalidEmailError);
         }
         return null;
       },
