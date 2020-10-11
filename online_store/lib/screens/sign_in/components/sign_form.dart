@@ -19,6 +19,7 @@ class _SignFormState extends State<SignForm> {
   bool remember = false;
   final List<String> errors = [];
 
+// func with named parameter
   void addError({String error}) {
     if (!errors.contains(error))
       setState(() {
@@ -75,7 +76,8 @@ class _SignFormState extends State<SignForm> {
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 // if all are valid then go to success screen
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                Navigator.pushReplacementNamed(
+                    context, LoginSuccessScreen.routeName);
               }
             },
           )
@@ -90,7 +92,7 @@ class _SignFormState extends State<SignForm> {
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
-        if (value.isNotEmpty) {
+        if (value.isNotEmpty && errors.contains(kPassNullError)) {
           removeError(error: kPassNullError);
         } else if (value.length >= 8) {
           removeError(error: kShortPassError);
@@ -104,6 +106,7 @@ class _SignFormState extends State<SignForm> {
       validator: (value) {
         if (value.isEmpty) {
           addError(error: kPassNullError);
+          removeError(error: kShortPassError);
         } else if (value.length < 8 && value.isNotEmpty) {
           addError(error: kShortPassError);
         }
@@ -128,16 +131,19 @@ class _SignFormState extends State<SignForm> {
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
-        if (value.isNotEmpty) {
+        if (value.isNotEmpty && errors.contains(kEmailNullError)) {
           removeError(error: kEmailNullError);
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
+        } else if (value.isNotEmpty && !emailValidatorRegExp.hasMatch(value)) {
+          addError(error: kInvalidEmailError);
+          return null;
         }
-        return null;
       },
       validator: (value) {
         if (value.isEmpty) {
           addError(error: kEmailNullError);
+          removeError(error: kInvalidEmailError);
         } else if (value.isNotEmpty && !emailValidatorRegExp.hasMatch(value)) {
           addError(error: kInvalidEmailError);
         }
