@@ -9,6 +9,7 @@ class SplashScreen extends StatelessWidget {
     // You have to call it(init func found in SizeConfig class) on your starting screen
     SizeConfig().init(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Body(),
     );
   }
