@@ -73,8 +73,10 @@ class _SignFormState extends State<SignForm> {
           DefaultButton(
             text: 'Login',
             press: () {
+              print(_formKey.currentState.validate());
               if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
+
                 // if all are valid then go to success screen
                 Navigator.pushReplacementNamed(
                     context, LoginSuccessScreen.routeName);
@@ -107,8 +109,10 @@ class _SignFormState extends State<SignForm> {
         if (value.isEmpty) {
           addError(error: kPassNullError);
           removeError(error: kShortPassError);
+          return "";
         } else if (value.length < 8 && value.isNotEmpty) {
           addError(error: kShortPassError);
+          return "";
         }
         return null;
       },
@@ -144,8 +148,10 @@ class _SignFormState extends State<SignForm> {
         if (value.isEmpty) {
           addError(error: kEmailNullError);
           removeError(error: kInvalidEmailError);
+          return "";
         } else if (value.isNotEmpty && !emailValidatorRegExp.hasMatch(value)) {
           addError(error: kInvalidEmailError);
+          return "";
         }
         return null;
       },

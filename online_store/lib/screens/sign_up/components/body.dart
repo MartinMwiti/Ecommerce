@@ -113,8 +113,10 @@ class _SignUpFormState extends State<SignUpForm> {
               if (value.isEmpty) {
                 addError(error: kPassNullError);
                 removeError(error: kShortPassError);
+                return "";
               } else if (value.length < 8 && value.isNotEmpty) {
                 addError(error: kShortPassError);
+                return "";
               }
               return null;
             },
