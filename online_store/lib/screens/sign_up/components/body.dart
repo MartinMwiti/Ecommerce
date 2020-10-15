@@ -36,7 +36,7 @@ class _SignUpFormState extends State<SignUpForm> {
   bool remember = false;
   final List<String> errors = [];
 
-  // func with named parameter
+  // func with named parameter for adding error 
   void addError({String error}) {
     if (!errors.contains(error))
       setState(() {
@@ -44,6 +44,7 @@ class _SignUpFormState extends State<SignUpForm> {
       });
   }
 
+  // func with named parameter for removing error 
   void removeError({String error}) {
     if (errors.contains(error))
       setState(() {
