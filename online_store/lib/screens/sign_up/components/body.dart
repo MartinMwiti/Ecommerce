@@ -84,6 +84,7 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
+  // CONFIRM PASSWORD FUNC
   TextFormField buildConfirmPasswordFormField() {
     return TextFormField(
       // obscure visibility of the password
@@ -117,6 +118,7 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
+  // PASSWORD FUNC
   TextFormField buildPasswordFormField() {
     return TextFormField(
       // obscure visibility of the password
@@ -159,6 +161,7 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
+  // EMAIL FUNC
   TextFormField buildEmailFormField() {
     return TextFormField(
       // Requests a keyboard with ready access to the "@" and "." keys.
