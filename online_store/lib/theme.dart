@@ -42,8 +42,8 @@ InputDecorationTheme inputDecorationTheme() {
   return InputDecorationTheme(
     contentPadding: const EdgeInsets.symmetric(
       //NB somehow when i include getPropotionate* func in results in toDouble error msg.
-      horizontal: 42,
-      vertical: 20,
+      horizontal: 42,  //42
+      vertical: 18, //20
     ),
     enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,
