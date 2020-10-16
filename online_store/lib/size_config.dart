@@ -4,6 +4,7 @@ class SizeConfig {
   static MediaQueryData _mediaQueryData;
   static double screenWidth;
   static double screenHeight;
+  static double appBarHeight;
   static double defaultSize;
   static Orientation orientation;
 
@@ -11,7 +12,15 @@ class SizeConfig {
     _mediaQueryData = MediaQuery.of(context);
     screenWidth = _mediaQueryData.size.width;
     screenHeight = _mediaQueryData.size.height;
+    appBarHeight = AppBar().preferredSize.height;
+    // safeAreaHorizontal =
+    //     _mediaQueryData.padding.left + _mediaQueryData.padding.right;
+    // safeAreaVertical =
+    //     _mediaQueryData.padding.top + _mediaQueryData.padding.bottom;
     orientation = _mediaQueryData.orientation;
+    print(screenHeight);
+    print(screenWidth);
+
   }
 }
 

@@ -25,7 +25,7 @@ class Body extends StatelessWidget {
                   "Complete your details or continue \nwith social media.",
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: SizeConfig.screenHeight * 0.05), // 5%
+                SizedBox(height: SizeConfig.screenHeight * 0.04), // 4%
                 SignUpForm(),
                 SizedBox(height: SizeConfig.screenHeight * 0.03), // 3%
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -42,11 +42,11 @@ class Body extends StatelessWidget {
                     press: () {},
                   )
                 ]),
-                SizedBox(height: getProportionateScreenHeight(25)),
+                SizedBox(height: getProportionateScreenHeight(15)),
                 Text(
                   "By continuing you confirm that you agree with our Term and Condition",
                   textAlign: TextAlign.center,
-                )
+                ),
               ],
             ),
           ),
