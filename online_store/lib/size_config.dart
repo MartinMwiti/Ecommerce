@@ -5,7 +5,7 @@ class SizeConfig {
   static double screenWidth;
   static double screenHeight;
   static double appBarHeight;
-  static double defaultSize;
+  static double pixelRatio;
   static Orientation orientation;
 
   void init(BuildContext context) {
@@ -13,13 +13,12 @@ class SizeConfig {
     screenWidth = _mediaQueryData.size.width;
     screenHeight = _mediaQueryData.size.height;
     appBarHeight = AppBar().preferredSize.height;
-    // safeAreaHorizontal =
-    //     _mediaQueryData.padding.left + _mediaQueryData.padding.right;
-    // safeAreaVertical =
-    //     _mediaQueryData.padding.top + _mediaQueryData.padding.bottom;
     orientation = _mediaQueryData.orientation;
-    print(screenHeight);
-    print(screenWidth);
+    pixelRatio = _mediaQueryData.devicePixelRatio;
+
+    // print(screenHeight);
+    print(pixelRatio); // 4
+    // SizedBox(height: 10); That means your SizedBox would be 4 * 10 = 40dp tall on that device.
 
   }
 }

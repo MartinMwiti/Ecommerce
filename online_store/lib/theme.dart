@@ -37,13 +37,13 @@ InputDecorationTheme inputDecorationTheme() {
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(28),
     borderSide: BorderSide(color: kTextColor),
-    gapPadding: 10,
+    gapPadding: 10/1.3,
   );
   return InputDecorationTheme(
     contentPadding: const EdgeInsets.symmetric(
       //NB somehow when i include getPropotionate* func in results in toDouble error msg.
-      horizontal: 42,  //42
-      vertical: 18, //20
+      horizontal: 35,  //42
+      vertical: 18/1.3, //20
     ),
     enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,

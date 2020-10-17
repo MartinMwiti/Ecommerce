@@ -8,7 +8,6 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      // minimum: EdgeInsets.only(bottom: getProportionateScreenHeight(40)),
       child: SizedBox(
         width: double.infinity,
         child: Padding(
