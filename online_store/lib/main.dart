@@ -6,7 +6,7 @@ import 'package:online_store/theme.dart';
 // import 'package:device_preview/device_preview.dart';
 
 void main() {
-  runApp(MyApp(),);
+  runApp(MyApp());
 }
 
 // // Preview layout on different Phones - TESTING PHASE
