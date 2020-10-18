@@ -34,17 +34,17 @@ final headingStyle = TextStyle(
 
 // const defaultDuration = Duration(milliseconds: 250);
 
-// final otpInputDecoration = InputDecoration(
-//   contentPadding:
-//       EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
-//   border: outlineInputBorder(),
-//   focusedBorder: outlineInputBorder(),
-//   enabledBorder: outlineInputBorder(),
-// );
+final otpInputDecoration = InputDecoration(
+  contentPadding:
+      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+  border: outlineInputBorder(),
+  focusedBorder: outlineInputBorder(),
+  enabledBorder: outlineInputBorder(),
+);
 
-// OutlineInputBorder outlineInputBorder() {
-//   return OutlineInputBorder(
-//     borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
-//     borderSide: BorderSide(color: kTextColor),
-//   );
-// }
+OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
+    borderSide: BorderSide(color: kTextColor),
+  );
+}
