@@ -17,4 +17,5 @@ final Map<String, WidgetBuilder> routes = {
   SignUpScreen.routeName: (context) => SignUpScreen(),
   CompleteProfile.routeName: (context) => CompleteProfile(),
   OtpScreen.routeName: (context) => OtpScreen(),
+  HomeScreen.routeName: (context) => HomeScreen(),
 };
