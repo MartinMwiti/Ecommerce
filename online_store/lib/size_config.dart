@@ -17,7 +17,7 @@ class SizeConfig {
     pixelRatio = _mediaQueryData.devicePixelRatio;
 
     // print(screenHeight);
-    print(pixelRatio); // 4
+    // print(pixelRatio); // 4
     // SizedBox(height: 10); That means your SizedBox would be 4 * 10 = 40dp tall on that device.
 
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_store/components/default_button.dart';
 import 'package:online_store/constants.dart';
-import 'package:online_store/screens/sign_in/sign_in_screen.dart';
+import 'package:online_store/screens/home/home_screen.dart';
 import 'package:online_store/screens/splash/components/splash_content.dart';
 import 'package:online_store/size_config.dart';
 
@@ -68,7 +68,8 @@ class _BodyState extends State<Body> {
                     DefaultButton(
                       text: 'Continue',
                       press: () {
-                        Navigator.pushNamed(context, SignInScreen.routeName);
+                        // Navigator.pushNamed(context, SignInScreen.routeName);
+                        Navigator.pushNamed(context, HomeScreen.routeName);
                       },
                     ), // Extracted a widget
                     Spacer(),
