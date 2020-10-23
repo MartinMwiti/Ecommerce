@@ -25,7 +25,7 @@ class DiscountBanner extends StatelessWidget {
             style: TextStyle(color: Colors.white),
             children: [
               TextSpan(
-                  text: "Callback 20%",
+                  text: "Cashback 20%",
                   style: TextStyle(
                       fontSize: 24, fontWeight: FontWeight.bold))
             ]),
