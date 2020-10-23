@@ -19,11 +19,10 @@ class Body extends StatelessWidget {
             SizedBox(height: getProportionateScreenWidth(30)),
             Categories(),
             SizedBox(height: getProportionateScreenWidth(30)),
-            SpecialOffers()
+            SpecialOffers(),
           ],
         ),
       ),
     );
   }
 }
-
