@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:online_store/screens/home/components/categories.dart';
 import 'package:online_store/screens/home/components/discount_banner.dart';
 import 'package:online_store/screens/home/components/home_header.dart';
-import 'package:online_store/screens/home/components/section_title.dart';
+import 'package:online_store/screens/home/components/special_offers.dart';
 import 'package:online_store/size_config.dart';
 
 class Body extends StatelessWidget {
@@ -19,10 +19,7 @@ class Body extends StatelessWidget {
             SizedBox(height: getProportionateScreenWidth(30)),
             Categories(),
             SizedBox(height: getProportionateScreenWidth(30)),
-            SectionTitle(
-              text: "Special for you",
-              press: () {},
-            ),
+            SpecialOffers()
           ],
         ),
       ),
