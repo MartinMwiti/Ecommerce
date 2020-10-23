@@ -71,7 +71,7 @@ class Body extends StatelessWidget {
                             child: Text("3",
                                 style: TextStyle(
                                   fontSize: getProportionateScreenWidth(10),
-                                  height: 1,
+                                  height: 1, // The height of this text span, as a multiple of the font size. fontSize * height
                                   color: Colors.white,
                                   fontWeight: FontWeight.w600,
                                 )),
