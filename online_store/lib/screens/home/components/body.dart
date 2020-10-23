@@ -10,6 +10,9 @@ class Body extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(
+              height: getProportionateScreenWidth(20),
+            ),
             Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: getProportionateScreenWidth(20)),
@@ -40,6 +43,8 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   Stack(
+                    overflow: Overflow
+                        .visible, // Whether overflowing children shouldn't be clipped/cut. In our case the 2nd container which has -3 top is clipped.
                     children: [
                       Container(
                         padding:
@@ -52,7 +57,7 @@ class Body extends StatelessWidget {
                         child: SvgPicture.asset("assets/icons/Bell.svg"),
                       ),
                       Positioned(
-                        top: -2,
+                        top: -3,
                         right: 0,
                         child: Container(
                           height: getProportionateScreenWidth(16),
@@ -61,6 +66,15 @@ class Body extends StatelessWidget {
                             color: Color(0xFFFF48484),
                             shape: BoxShape.circle,
                             border: Border.all(width: 1.5, color: Colors.white),
+                          ),
+                          child: Center(
+                            child: Text("3",
+                                style: TextStyle(
+                                  fontSize: getProportionateScreenWidth(10),
+                                  height: 1,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                )),
                           ),
                         ),
                       )
