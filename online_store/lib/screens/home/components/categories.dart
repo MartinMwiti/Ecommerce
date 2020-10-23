@@ -13,20 +13,20 @@ class Categories extends StatelessWidget {
       {"icon": "assets/icons/Discover.svg", "text": "More"},
     ];
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+      padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         // NB: using children: [List.generate(...)] is wrapping a list as a list. This will lead to an error. Solution, use spread opetator to extend the list i.e [...List.generate(...)] or remove the the brackets IF THERE AREN'T OTHER CHILDREN WIDGETS TO BE ADDED.
         children: List.generate(
-            categories.length,
-            (index) => CategoryCard(
-              icon: categories[index]["icon"],
-              text: categories[index]["text"],
-              press: () {},
-            ),
-          )
-        ,
+          categories.length,
+          (index) => CategoryCard(
+            icon: categories[index]["icon"],
+            text: categories[index]["text"],
+            press: () {},
+          ),
+        ),
       ),
     );
   }
