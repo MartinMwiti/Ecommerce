@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:online_store/screens/cart/cart_screen.dart';
 import 'package:online_store/screens/complete_profile/complete_profile_screen.dart';
 import 'package:online_store/screens/details/components/details_screen.dart';
 import 'package:online_store/screens/forgot_password/forgot_password_screen.dart';
@@ -12,7 +13,8 @@ import 'package:online_store/screens/splash/splash_screen.dart';
 // We use name route
 // All our routes will be available here
 final Map<String, WidgetBuilder> routes = {
-  SplashScreen.routeName: (context) => SplashScreen(), // When navigating to the "/splash" route, build the SplashScreen widget.
+  SplashScreen.routeName: (context) =>
+      SplashScreen(), // When navigating to the "/splash" route, build the SplashScreen widget.
   SignInScreen.routeName: (context) => SignInScreen(),
   ForgotPasswordScreen.routeName: (context) => ForgotPasswordScreen(),
   LoginSuccessScreen.routeName: (context) => LoginSuccessScreen(),
@@ -21,4 +23,5 @@ final Map<String, WidgetBuilder> routes = {
   OtpScreen.routeName: (context) => OtpScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
   DetailsScreen.routeName: (context) => DetailsScreen(),
+  CartScreen.routeName: (context) => CartScreen()
 };
