@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:online_store/screens/login_success/components/second_screen.dart';
+import 'package:online_store/screens/home/home_screen.dart';
 import 'package:online_store/size_config.dart';
 
 class Body extends StatefulWidget {
@@ -54,8 +54,7 @@ class _BodyState extends State<Body> {
 
   route() {
     // Navigator.pushReplacement - Replace the current route of the navigator that most tightly encloses the given context by pushing the given route and then disposing the previous route once the new route has finished animating in.
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => SecondScreen()));
+    Navigator.pushNamed(context, HomeScreen.routeName);
   }
 }
 
