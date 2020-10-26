@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_store/models/product.dart';
+import 'package:online_store/screens/details/components/body.dart';
 import 'package:online_store/screens/details/components/custom_app_bar.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -13,6 +14,9 @@ class DetailsScreen extends StatelessWidget {
       backgroundColor: Color(0xFFF5F6F9),
       appBar: CustomAppBar(arguments.product
           .rating), // By default, the appbar has size limits thus if adding say, padding, it's shape e.g leading icon is squized thus in need for a more flexible/custom appBar
+      body: Body(
+        product: arguments.product,
+      ),
     );
   }
 }
